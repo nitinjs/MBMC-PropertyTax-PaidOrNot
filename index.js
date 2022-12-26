@@ -10,6 +10,38 @@ import $ from 'jquery';
 //appDiv.innerHTML = `<h1>Check whether property tax paid?</h1>`;
 
 var baseURL = 'https://pg.mbmc.gov.in';
+var api_key = "b3ab4453be2c201cf3d5fb491f8647de4b93693f";
+//https://stackoverflow.com/questions/4760538/using-only-javascript-to-shrink-urls-using-the-bit-ly-api
+function get_short_url(long_url, func)
+{
+    $.getJSON(
+        "http://api.bitly.com/v3/shorten?callback=?", 
+        { 
+            "format": "json",
+            "apiKey": api_key,
+            "login": "LOGIN_HERE",
+            "longUrl": long_url
+        },
+        function(response)
+        {
+            func(response.data.url);
+        }
+    );
+}
+
+function addToBookMark(){
+  get_short_url(window.location.href, function(shortURL){
+      if (window.sidebar) { // Mozilla Firefox Bookmark
+      window.sidebar.addPanel(shortURL,document.title,"");
+    } else if(window.external) { // IE Favorite
+      window.external.AddFavorite(shortURL,document.title); }
+    else if(window.opera && window.print) { // Opera Hotlist
+      this.title=document.title;
+      return true;
+    }
+  });
+}
+
 function GetPropertyTax(propertyCode) {
   var result = '';
   $.ajax({
@@ -67,5 +99,9 @@ $(document).ready(function () {
     } else {
       $('.table').hide();
     }
+  });
+
+  $("#bookmarkme").click(function() {
+    
   });
 });
