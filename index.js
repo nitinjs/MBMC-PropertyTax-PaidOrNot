@@ -20,7 +20,6 @@ function GetPropertyTax(propertyCode) {
     data: JSON.stringify(data),
     dataType: 'json',
     success: function (res) {
-      //console.log(res);
       result = res;
       //if (responseText.responseStatus == 300) {
       //}
