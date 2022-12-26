@@ -12,7 +12,7 @@
 | 1. | basic api executions      | ✅ |
 | 2. | sample html app | ✅ |
 | 3. | bokmarkable URL so that user dont have to type property codes again | 🚧 |
-| 3. | email notification when property tax not paid: for housing societies | 🚧 |
+| 4. | email notification when property tax not paid: for housing societies | 🚧 |
 
 Note: 
 1. This code makes no sense
