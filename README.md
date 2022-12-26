@@ -7,13 +7,14 @@
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/js-at9lbb)
 
 ## Roadmap:
-| No | Feature      | status |
-|----|---------------------------|---|
-| 1. | basic api executions      | ✅ |
-| 2. | sample html app | ✅ |
-| 3. | bokmarkable URL so that user dont have to type property codes again | 🚧 |
-| 4. | email notification when property tax not paid: for housing societies | 🚧 |
 
-Note: 
+| No  | Feature                                                              | status |
+| --- | -------------------------------------------------------------------- | ------ |
+| 1.  | basic api executions                                                 | ✅     |
+| 2.  | sample html app                                                      | ✅     |
+| 3.  | bokmarkable URL so that user dont have to type property codes again  | 🚧     |
+| 4.  | email notification when property tax not paid: for housing societies | 🚧     |
+
+Note:
+
 1. This code makes no sense
-2. I am not affiliated with MBMC in any way
