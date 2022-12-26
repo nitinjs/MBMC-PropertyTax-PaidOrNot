@@ -29,7 +29,7 @@ function GetPropertyTax(propertyCode) {
   console.log(result);
   return result;
 }
-var data = { channel: 0, code: 'K040032082039' };
+
 $(document).ready(function () {
   $('#txtPropCodes').on('change', function (evt) {
     console.log($(this).val());
