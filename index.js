@@ -64,6 +64,11 @@ function Retrieve() {
   //document.getElementById("txtPropCodes").value = val;
 }
 
+//https://stackoverflow.com/a/10232792/223752
+function isEmptyOrSpaces(str){
+    return str === null || str.match(/^ *$/) !== null;
+}
+
 function addToBookMark() {
   var curURL =
     'https://js-at9lbb.stackblitz.io?propertyCodes=' + $('#txtPropCodes').val();
@@ -139,31 +144,33 @@ $(document).ready(function () {
       var arr = num.split(';');
       console.log(arr);
       $.each(arr, function (i, e) {
-        var json = GetPropertyTax(e);
-        var html = $('<tr></tr>');
-        if (json.bill_details) {
-          html.append($('<td>' + json.bill_details.propertyCode + '</td>'));
-          html.append($('<td>' + json.bill_details.ownerName + '</td>'));
-          html.append($('<td>₹' + json.bill_details.billAmount + '</td>'));
-          if (json.bill_details.billAmount == 0) {
-            html.append(
-              $('<td><span class="alert alert-success">✔️</span></td>')
-            );
+        if(!isEmptyOrSpaces(e)){
+          var json = GetPropertyTax(e);
+          var html = $('<tr></tr>');
+          if (json.bill_details) {
+            html.append($('<td>' + json.bill_details.propertyCode + '</td>'));
+            html.append($('<td>' + json.bill_details.ownerName + '</td>'));
+            html.append($('<td>₹' + json.bill_details.billAmount + '</td>'));
+            if (json.bill_details.billAmount == 0) {
+              html.append(
+                $('<td><span class="alert alert-success">✔️</span></td>')
+              );
+            } else {
+              html.append(
+                $('<td><span class="alert alert-danger">❌</span></td>')
+              );
+            }
           } else {
             html.append(
-              $('<td><span class="alert alert-danger">❌</span></td>')
+              $(
+                '<td colspan="5" style="color:tomato">Invalid property code:&nbsp;<i>' +
+                  e +
+                  '</i></td>'
+              )
             );
           }
-        } else {
-          html.append(
-            $(
-              '<td colspan="5" style="color:tomato">Invalid property code:&nbsp;<i>' +
-                e +
-                '</i></td>'
-            )
-          );
+          $('#tblResult').append(html);
         }
-        $('#tblResult').append(html);
       });
       $('.table tr.loading').hide();
     } else {
