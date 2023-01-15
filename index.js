@@ -50,6 +50,21 @@ function get_short_url(long_url, func) {
   });
 }
 
+function Preserve(num){
+  localStorage.setItem('pCodes', num); // or  localStorage.value = document.getElementById("myData").value
+}
+
+//https://stackoverflow.com/a/23142165/223752
+function Retrieve(){
+  var val = localStorage.getItem('pCodes'); // or localStorage.value
+
+  if(val == null)
+    val = "";
+
+  return val;
+  //document.getElementById("txtPropCodes").value = val;
+}
+
 function addToBookMark() {
   var curURL =
     'https://js-at9lbb.stackblitz.io?propertyCodes=' + $('#txtPropCodes').val();
@@ -98,6 +113,14 @@ $(document).ready(function () {
       .removeClass('is-invalid');
     $('.valid-feedback').show();
     $('#btnSumbit').click();
+  }else{
+    var val = Retrieve();
+    $('#txtPropCodes')
+      .val(val)
+      .addClass('is-valid')
+      .removeClass('is-invalid');
+    $('.valid-feedback').show();
+    $('#btnSumbit').click();
   }
 
   $('#txtPropCodes').on('change', function (evt) {
@@ -116,6 +139,7 @@ $(document).ready(function () {
       $('.tblResult tr').not('.loading, .head').remove();
       $('.tblResult').show();
       var num = $('#txtPropCodes').val();
+      Preserve(num);
       var arr = num.split(',');
       console.log(arr);
       $.each(arr, function (i, e) {
