@@ -50,16 +50,15 @@ function get_short_url(long_url, func) {
   });
 }
 
-function Preserve(num){
+function Preserve(num) {
   localStorage.setItem('pCodes', num); // or  localStorage.value = document.getElementById("myData").value
 }
 
 //https://stackoverflow.com/a/23142165/223752
-function Retrieve(){
+function Retrieve() {
   var val = localStorage.getItem('pCodes'); // or localStorage.value
 
-  if(val == null)
-    val = "";
+  if (val == null) val = '';
 
   return val;
   //document.getElementById("txtPropCodes").value = val;
@@ -113,12 +112,9 @@ $(document).ready(function () {
       .removeClass('is-invalid');
     $('.valid-feedback').show();
     $('#btnSumbit').click();
-  }else{
+  } else {
     var val = Retrieve();
-    $('#txtPropCodes')
-      .val(val)
-      .addClass('is-valid')
-      .removeClass('is-invalid');
+    $('#txtPropCodes').val(val).addClass('is-valid').removeClass('is-invalid');
     $('.valid-feedback').show();
     $('#btnSumbit').click();
   }
@@ -145,15 +141,27 @@ $(document).ready(function () {
       $.each(arr, function (i, e) {
         var json = GetPropertyTax(e);
         var html = $('<tr></tr>');
-        html.append($('<td>' + json.bill_details.propertyCode + '</td>'));
-        html.append($('<td>' + json.bill_details.ownerName + '</td>'));
-        html.append($('<td>₹' + json.bill_details.billAmount + '</td>'));
-        if (json.bill_details.billAmount == 0) {
-          html.append(
-            $('<td><span class="alert alert-success">✔️</span></td>')
-          );
+        if (json.bill_details) {
+          html.append($('<td>' + json.bill_details.propertyCode + '</td>'));
+          html.append($('<td>' + json.bill_details.ownerName + '</td>'));
+          html.append($('<td>₹' + json.bill_details.billAmount + '</td>'));
+          if (json.bill_details.billAmount == 0) {
+            html.append(
+              $('<td><span class="alert alert-success">✔️</span></td>')
+            );
+          } else {
+            html.append(
+              $('<td><span class="alert alert-danger">❌</span></td>')
+            );
+          }
         } else {
-          html.append($('<td><span class="alert alert-danger">❌</span></td>'));
+          html.append(
+            $(
+              '<td colspan="5" style="color:tomato">Invalid property code:&nbsp;<i>' +
+                e +
+                '</i></td>'
+            )
+          );
         }
         $('#tblResult').append(html);
       });
