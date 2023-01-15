@@ -136,7 +136,7 @@ $(document).ready(function () {
       $('.tblResult').show();
       var num = $('#txtPropCodes').val();
       Preserve(num);
-      var arr = num.split(',');
+      var arr = num.split(';');
       console.log(arr);
       $.each(arr, function (i, e) {
         var json = GetPropertyTax(e);
