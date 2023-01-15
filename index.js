@@ -89,7 +89,7 @@ function addToBookMark() {
 
 function GetPropertyTax(propertyCode) {
   var result = '';
-  var data = { channel: 0, code: propertyCode };
+  var data = { channel: 0, code: $.trim(propertyCode) };
   $.ajax({
     type: 'POST',
     contentType: 'application/json',
