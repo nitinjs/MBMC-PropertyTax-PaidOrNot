@@ -2,10 +2,9 @@
 
 # MBMC-PropertyTax-PaidOrNot
 
-<img src="https://user-images.githubusercontent.com/298479/215351595-631f764e-698b-42a3-99be-2af794deeef8.png" alt="ss" width="30%"/>
+<img src="https://user-images.githubusercontent.com/298479/215351595-631f764e-698b-42a3-99be-2af794deeef8.png" alt="ss" width="40%"/>
 
 The page is accessible here: [https://bit.ly/mbmcproptax](https://bit.ly/mbmcproptax)
-
 
 ### Roadmap:
 
