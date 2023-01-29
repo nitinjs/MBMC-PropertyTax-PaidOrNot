@@ -65,8 +65,8 @@ function Retrieve() {
 }
 
 //https://stackoverflow.com/a/10232792/223752
-function isEmptyOrSpaces(str){
-    return str === null || str.match(/^ *$/) !== null;
+function isEmptyOrSpaces(str) {
+  return str === null || str.match(/^ *$/) !== null;
 }
 
 function addToBookMark() {
@@ -107,6 +107,17 @@ function GetPropertyTax(propertyCode) {
   return result;
 }
 
+function ToggleLoading(flag) {
+  if (flag) {
+    //$('#btnSumbit').html('Loading');
+    $('#trLoading').show();
+    $('.trResult').remove();
+  } else {
+    $('#trLoading').hide();
+    //$('#btnSumbit').html('Check');
+  }
+}
+
 $(document).ready(function () {
   this.title = titleX;
   if ($.QueryString.propertyCodes) {
@@ -137,16 +148,16 @@ $(document).ready(function () {
   });
   $('#btnSumbit').on('click', function () {
     if ($('#txtPropCodes').hasClass('is-valid')) {
-      $('.tblResult tr').not('.loading, .head').remove();
+      ToggleLoading(true);
       $('.tblResult').show();
       var num = $('#txtPropCodes').val();
       Preserve(num);
       var arr = num.split(';');
       console.log(arr);
       $.each(arr, function (i, e) {
-        if(!isEmptyOrSpaces(e)){
+        if (!isEmptyOrSpaces(e)) {
           var json = GetPropertyTax(e);
-          var html = $('<tr></tr>');
+          var html = $('<tr class="trResult"></tr>');
           if (json.bill_details) {
             html.append($('<td>' + json.bill_details.propertyCode + '</td>'));
             html.append($('<td>' + json.bill_details.ownerName + '</td>'));
@@ -172,7 +183,7 @@ $(document).ready(function () {
           $('#tblResult').append(html);
         }
       });
-      $('.table tr.loading').hide();
+      ToggleLoading(false);
     } else {
       $('.tblResult').hide();
     }
