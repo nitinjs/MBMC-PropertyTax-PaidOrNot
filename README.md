@@ -1,6 +1,6 @@
 # MBMC-PropertyTax-PaidOrNot
 
-<img src="https://user-images.githubusercontent.com/298479/209489695-56c6a091-b937-48ff-bd3f-28b854cba66f.png" alt="ss" width="90%"/>
+<img src="https://user-images.githubusercontent.com/298479/215351432-fa73162c-2922-4ead-be83-4ef46ca2370b.png" alt="ss" width="80%"/>
 
 ### The page is hosted [here](https://bit.ly/prarthanachs)
 
@@ -12,7 +12,7 @@
 | --- | -------------------------------------------------------------------- | ------ |
 | 1.  | basic api executions                                                 | ✅     |
 | 2.  | sample html app                                                      | ✅     |
-| 3.  | bokmarkable URL [https://bit.ly/prarthanachs](https://bit.ly/prarthanachs) added so that user dont have to type property codes again  | ✅     |
+| 3.  | bookmarkable URL [https://bit.ly/prarthanachs](https://bit.ly/prarthanachs) added so that user dont have to type property codes again  | ✅     |
 | 4.  | email notification when property tax not paid: for housing societies | 🚧     |
 
 ## Note:
