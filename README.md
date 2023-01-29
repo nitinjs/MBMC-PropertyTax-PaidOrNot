@@ -1,6 +1,6 @@
 # MBMC-PropertyTax-PaidOrNot
 
-<img src="https://user-images.githubusercontent.com/298479/215351432-fa73162c-2922-4ead-be83-4ef46ca2370b.png" alt="ss" width="80%"/>
+<img src="https://user-images.githubusercontent.com/298479/215351432-fa73162c-2922-4ead-be83-4ef46ca2370b.png" alt="ss" width="30%"/>
 
 ### The page is hosted [here](https://bit.ly/prarthanachs)
 
